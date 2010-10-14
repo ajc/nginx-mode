@@ -46,7 +46,14 @@
 
 (defvar nginx-font-lock-keywords
   (list '("#.*" . font-lock-comment-face)
-	'("^\\([ ]+\\)?\\([A-Za-z09_]+\\)" 2 font-lock-keyword-face t)))
+	'("^\\([ \t]+\\)?\\([A-Za-z09_]+\\)" 2 font-lock-keyword-face t)
+	'(";$" . font-lock-pseudo-keyword-face)
+	'("\\(\{\\|\}\\|\(\\|\)\\)" . font-lock-pseudo-keyword-face)
+	'("^\\([ \t]+\\)?rewrite[ \t]+.+[ \t]+\\(permanent\\|redirect\\|break\\|last\\);$" 2 font-lock-operator-face)
+	'("\\(\$[0-9]+\\)[^0-9]" 1 font-lock-constant-face)
+	'("\$[A-Za-z0-9_\-]+" . font-lock-variable-name-face)
+	'("[ \t]+\\(on\\|off\\);$" 1 font-lock-constant-face)
+	'("[A-Za-z0-9_\-]+\\([ \t]+[^ \t\n]+\\)?[ \t]+\\([^ \t\n]+\\)[ \t]+{" 2 font-lock-operator-face)))
 
 
 ;;;;##########################################################################
