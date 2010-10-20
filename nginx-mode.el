@@ -2,6 +2,11 @@
 
 ;; Copyright 2010 Andrew J Cosgriff <andrew@cosgriff.name>
 
+;; Author: Andrew J Cosgriff <andrew@cosgriff.name>
+;; Maintainer: Andrew J Cosgriff <andrew@cosgriff.name>
+;; Created: 15 Oct 2010
+;; Keywords: nginx
+
 ;; available from http://github.com/ajc/nginx-mode
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -15,13 +20,15 @@
 ;; GNU General Public License for more details.
 ;;
 ;; You should have received a copy of the GNU General Public License
-;; along with this program; if not, write to the Free Software
-;; Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+;; along with this program; if not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
 
-;; indentation bits were nicked from puppet-mode.el (thanks!) and
-;; modified to suit.
+;; This is a quick mode for editing Nginx config files, as I didn't find
+;; anything else around that did quite this much.
+
+;; Many thanks to the authors of puppet-mode.el, from where I found a
+;; useful indentation function that I've modified to suit this situation.
 
 ;; Put this file into your load-path and the following into your ~/.emacs:
 ;;   (require 'nginx-mode)
