@@ -97,7 +97,7 @@ of the closing brace of a block."
   (save-excursion
     (save-match-data
       (beginning-of-line)
-      (looking-at (format "\\s-*%s" comment-start)))))
+      (looking-at "^\\s-*#"))))
 
 (defun nginx-indent-line ()
   "Indent current line as nginx code."
@@ -109,10 +109,10 @@ of the closing brace of a block."
           (block-indent (nginx-block-indent))
           cur-indent)
       (cond
-       ((and (looking-at "^\\s-*},?\\s-*$") block-indent)
-        ;; This line contains a closing brace or a closing brace followed by a
-        ;; comma and we're at the inner block, so we should indent it matching
-        ;; the indentation of the opening brace of the block.
+       ((and (looking-at "^\\s-*}\\s-*$") block-indent)
+        ;; This line contains a closing brace and we're at the inner
+        ;; block, so we should indent it matching the indentation of
+        ;; the opening brace of the block.
         (setq cur-indent block-indent))
        (t
         ;; Otherwise, we did not start on a block-ending-only line.
@@ -129,7 +129,7 @@ of the closing brace of a block."
 
              ;; Brace or paren on a line by itself will already be indented to
              ;; the right level, so we can cheat and stop there.
-             ((looking-at "^\\s-*[\)}]\\s-*")
+             ((looking-at "^\\s-*}\\s-*")
               (setq cur-indent (current-indentation))
               (setq not-indented nil))
 
@@ -140,23 +140,13 @@ of the closing brace of a block."
               (setq cur-indent (+ (current-indentation) nginx-indent-level))
               (setq not-indented nil))
 
-             ;; Indent by one level if the line ends with an open paren.
-             ((looking-at "^.*\(\\s-*$")
-              (setq cur-indent (+ (current-indentation) nginx-indent-level))
-              (setq not-indented nil))
-
              ;; Start of buffer.
              ((bobp)
-              (setq not-indented nil)))))
-
-        ;; If this line contains only a closing paren, we should lose one
-        ;; level of indentation.
-        (if (looking-at "^\\s-*\)\\s-*$")
-            (setq cur-indent (- cur-indent nginx-indent-level)))))
+              (setq not-indented nil)))))))
 
       ;; We've figured out the indentation, so do it.
       (if (and cur-indent (> cur-indent 0))
-          (indent-line-to cur-indent)
+	  (indent-line-to cur-indent)
         (indent-line-to 0)))))
 
 
