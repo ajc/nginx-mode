@@ -5,6 +5,7 @@
 ;; Author: Andrew J Cosgriff <andrew@cosgriff.name>
 ;; Maintainer: Andrew J Cosgriff <andrew@cosgriff.name>
 ;; Created: 15 Oct 2010
+;; Version: 1.1
 ;; Keywords: nginx
 
 ;; available from http://github.com/ajc/nginx-mode
