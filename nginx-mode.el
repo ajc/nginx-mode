@@ -5,7 +5,7 @@
 ;; Author: Andrew J Cosgriff <andrew@cosgriff.name>
 ;; Maintainer: Andrew J Cosgriff <andrew@cosgriff.name>
 ;; Created: 15 Oct 2010
-;; Version: 1.1.1
+;; Version: 1.1.2
 ;; Keywords: nginx
 
 ;; available from http://github.com/ajc/nginx-mode
@@ -184,7 +184,11 @@ The variable nginx-indent-level controls the amount of indentation.
 
   (set (make-local-variable 'font-lock-defaults)
        '(nginx-font-lock-keywords nil))
-  (run-hooks 'nginx-mode-hook))
+  (run-hooks 'nginx-mode-hook)
+
+  (add-to-list 'auto-mode-alist
+               '("nginx\.conf$"  . nginx-mode)
+               '("/etc/nginx/.*" . nginx-mode)))
 
 (provide 'nginx-mode)
 
