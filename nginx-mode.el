@@ -55,7 +55,6 @@
 (defvar nginx-font-lock-keywords
   (list '("#.*" . font-lock-comment-face)
 	'("^\\([ \t]+\\)?\\([A-Za-z09_]+\\)" 2 font-lock-keyword-face t)
-	'(";$" . font-lock-pseudo-keyword-face)
 	;; uncomment the next one if you want your eyes to bleed
 	;; (it'll highlight parentheses and curly braces)
 	;;'("\\(\{\\|\}\\|\(\\|\)\\)" . font-lock-pseudo-keyword-face)
