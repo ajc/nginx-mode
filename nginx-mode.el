@@ -184,11 +184,12 @@ The variable nginx-indent-level controls the amount of indentation.
 
   (set (make-local-variable 'font-lock-defaults)
        '(nginx-font-lock-keywords nil))
-  (run-hooks 'nginx-mode-hook)
+  (run-hooks 'nginx-mode-hook))
 
-  (add-to-list 'auto-mode-alist
-               '("nginx\.conf$"  . nginx-mode)
-               '("/etc/nginx/.*" . nginx-mode)))
+;;;###autoload
+(add-to-list 'auto-mode-alist
+             '("nginx\.conf$"  . nginx-mode)
+             '("/etc/nginx/.*" . nginx-mode))
 
 (provide 'nginx-mode)
 
