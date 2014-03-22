@@ -20,7 +20,11 @@ Many thanks to the authors of puppet-mode.el, from where I found a
 useful indentation function that I've modified to suit this situation.
 
 Put this file into your load-path and the following into your ~/.emacs:
+```lisp
   (require 'nginx-mode)
+```
 
-
-
+Example: To load nginx-mode to all files in your /etc/nginx/sites-available use:
+```lisp
+(add-to-list 'auto-mode-alist '("/etc/nginx/sites-available/.*" . nginx-mode))   
+```
