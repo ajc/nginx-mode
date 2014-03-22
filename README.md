@@ -24,7 +24,7 @@ Put this file into your load-path and the following into your ~/.emacs:
   (require 'nginx-mode)
 ```
 
-Example: To load nginx-mode to all files in your /etc/nginx/sites-available use:
+The mode should automatically activate for files called `nginx.conf` and files under `/etc/nginx` - if not, you can add something like this to your init file:
 ```lisp
 (add-to-list 'auto-mode-alist '("/etc/nginx/sites-available/.*" . nginx-mode))   
 ```
