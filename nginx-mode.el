@@ -187,9 +187,7 @@ The variable nginx-indent-level controls the amount of indentation.
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("nginx\\.conf\\'"  . nginx-mode))
 ;;;###autoload
-(add-to-list 'auto-mode-alist '("/nginx/.*\\.conf\\'" . nginx-mode))
-;;;###autoload
-(add-to-list 'auto-mode-alist '("/nginx/sites-\\(?:available\\|enabled\\)/" . nginx-mode))
+(add-to-list 'auto-mode-alist '("/nginx/.+\\.conf\\'" . nginx-mode))
 
 (provide 'nginx-mode)
 

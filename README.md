@@ -24,16 +24,14 @@ Put this file into your `load-path` and the following into your `~/.emacs`:
   (require 'nginx-mode)
 ```
 
-The mode should automatically activate for files:
+The mode automatically activates for:
 
-1. Called `nginx.conf`
+1. Files, called `nginx.conf`
 2. Files ending in `.conf` under `nginx` directory
-3. All files in `nginx/sites-available` and `nginx/sites-enabled`
 
-If this does not work (e.g. shadowed by other packages autoload entries), this also goes to `~/.emacs`:
+If you want `sites-enabled` dir, add this to `~/.emacs` (not done by
+default, because can be shadowed by `apache-mode`):
 
 ```lisp
-(add-to-list 'auto-mode-alist '("nginx\\.conf\\'"  . nginx-mode))
-(add-to-list 'auto-mode-alist '("/nginx/.*\\.conf\\'" . nginx-mode))
 (add-to-list 'auto-mode-alist '("/nginx/sites-\\(?:available\\|enabled\\)/" . nginx-mode))
 ```
