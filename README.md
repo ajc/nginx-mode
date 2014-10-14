@@ -16,15 +16,22 @@ Licensed under the [GPL version 3](http://www.gnu.org/licenses/) or later.
 This is a quick mode for editing Nginx config files, as I didn't find
 anything else around that did quite this much.
 
-Many thanks to the authors of puppet-mode.el, from where I found a
+Many thanks to the authors of `puppet-mode.el`, from where I found a
 useful indentation function that I've modified to suit this situation.
 
-Put this file into your load-path and the following into your ~/.emacs:
+Put this file into your `load-path` and the following into your `~/.emacs`:
 ```lisp
   (require 'nginx-mode)
 ```
 
-The mode should automatically activate for files called `nginx.conf` and files under `/etc/nginx` - if not, you can add something like this to your init file:
+The mode automatically activates for:
+
+1. Files, called `nginx.conf`
+2. Files ending in `.conf` under `nginx` directory
+
+If you want `sites-enabled` dir, add this to `~/.emacs` (not done by
+default, because can be shadowed by `apache-mode`):
+
 ```lisp
-(add-to-list 'auto-mode-alist '("/etc/nginx/sites-available/.*" . nginx-mode))   
+(add-to-list 'auto-mode-alist '("/nginx/sites-\\(?:available\\|enabled\\)/" . nginx-mode))
 ```
