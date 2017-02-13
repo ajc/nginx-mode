@@ -1,4 +1,3 @@
-
 ;;; nginx-mode.el --- major mode for editing nginx config files
 
 ;; Copyright 2010 Andrew J Cosgriff <andrew@cosgriff.name>
@@ -7,7 +6,7 @@
 ;; Maintainer: Andrew J Cosgriff <andrew@cosgriff.name>
 ;; Created: 15 Oct 2010
 ;; Version: 1.1.6
-;; Keywords: nginx
+;; Keywords: languages, nginx
 
 ;; available from http://github.com/ajc/nginx-mode
 
@@ -50,10 +49,15 @@
   "*Indentation can insert tabs in nginx mode if this is non-nil."
   :type 'boolean :group 'nginx)
 
+(defvar nginx-mode-syntax-table
+  (let ((table (make-syntax-table)))
+    (modify-syntax-entry ?# "< b" table)
+    (modify-syntax-entry ?\n "> b" table)
+    table)
+  "Syntax table for `nginx-mode'.")
 
 (defvar nginx-font-lock-keywords
-  (list '("#.*" . font-lock-comment-face)
-	'("^\\([ \t]+\\)?\\([A-Za-z09_]+\\)" 2 font-lock-keyword-face t)
+  (list '("^\\([ \t]+\\)?\\([A-Za-z09_]+\\)" 2 font-lock-keyword-face t)
 	;; uncomment the next one if you want your eyes to bleed
 	;; (it'll highlight parentheses and curly braces)
 	;;'("\\(\{\\|\}\\|\(\\|\)\\)" . font-lock-pseudo-keyword-face)
@@ -158,16 +162,14 @@ of the closing brace of a block."
   "Keymap for editing nginx config files.")
 
 ;;;###autoload
-(defun nginx-mode ()
+(define-derived-mode nginx-mode prog-mode "Nginx"
   "Major mode for highlighting nginx config files.
 
 The variable nginx-indent-level controls the amount of indentation.
 \\{nginx-mode-map}"
-  (interactive)
-  (kill-all-local-variables)
+  :syntax-table nginx-mode-syntax-table
+
   (use-local-map nginx-mode-map)
-  (setq mode-name "Nginx"
-        major-mode 'nginx-mode)
 
   (set (make-local-variable 'comment-start) "# ")
   (set (make-local-variable 'comment-start-skip) "#+ *")
