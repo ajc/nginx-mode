@@ -184,8 +184,7 @@ The variable nginx-indent-level controls the amount of indentation.
   (set (make-local-variable 'paragraph-separate) "\\([ 	\f]*\\|#\\)$")
 
   (set (make-local-variable 'font-lock-defaults)
-       '(nginx-font-lock-keywords nil))
-  (run-hooks 'nginx-mode-hook))
+       '(nginx-font-lock-keywords nil)))
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("nginx\\.conf\\'"  . nginx-mode))
