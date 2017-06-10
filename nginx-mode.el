@@ -190,6 +190,11 @@ The variable nginx-indent-level controls the amount of indentation.
 (add-to-list 'auto-mode-alist '("nginx\\.conf\\'"  . nginx-mode))
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("/nginx/.+\\.conf\\'" . nginx-mode))
+;;;###autoload
+(add-to-list
+ 'magic-fallback-mode-alist
+ '("\\(?:.*\n\\)*\\(?:http\\|server\\|location .+\\|upstream .+\\)[ \n\t]+{"
+   . nginx-mode))
 
 (provide 'nginx-mode)
 
