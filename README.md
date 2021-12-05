@@ -10,6 +10,7 @@ Copyright 2010 Andrew J Cosgriff <andrew@cosgriff.name>
 available from http://github.com/ajc/nginx-mode
 
 [![MELPA](https://melpa.org/packages/nginx-mode-badge.svg)](https://melpa.org/#/nginx-mode)
+[![MELPA Stable](https://stable.melpa.org/packages/nginx-mode-badge.svg)](https://stable.melpa.org/#/nginx-mode)
 
 Licensed under the [GPL version 2](http://www.gnu.org/licenses/) or later.
 
