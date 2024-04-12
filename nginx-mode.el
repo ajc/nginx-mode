@@ -96,7 +96,7 @@ of the closing brace of a block."
           (block-indent (nginx-block-indent))
           cur-indent)
       (cond
-       ((and (looking-at "^\\s-*}\\s-*$") block-indent)
+       ((and (looking-at "^\\s-*}") block-indent)
         ;; This line contains a closing brace and we're at the inner
         ;; block, so we should indent it matching the indentation of
         ;; the opening brace of the block.
