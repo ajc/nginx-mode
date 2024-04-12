@@ -27,6 +27,12 @@ Put this file into your `load-path` and the following into your `~/.emacs`:
   (require 'nginx-mode)
 ```
 
+Now that nginx-mode is available via NonGNU ELPA, you could also:
+```lisp
+(use-package nginx-mode
+ :commands nginx-mode)
+```
+
 The mode automatically activates for:
 
 1. Files, called `nginx.conf`

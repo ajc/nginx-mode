@@ -5,7 +5,7 @@
 ;; Author: Andrew J Cosgriff <andrew@cosgriff.name>
 ;; Maintainer: Andrew J Cosgriff <andrew@cosgriff.name>
 ;; Created: 15 Oct 2010
-;; Version: 1.1.9
+;; Version: 1.1.10
 ;; Keywords: languages, nginx
 
 ;; available from http://github.com/ajc/nginx-mode
@@ -33,6 +33,10 @@
 
 ;; Put this file into your load-path and the following into your ~/.emacs:
 ;;   (require 'nginx-mode)
+;;
+;; Now that nginx-mode is available via NonGNU ELPA, you could also:
+;; (use-package nginx-mode
+;;  :commands nginx-mode)
 
 ;;; Code:
 
